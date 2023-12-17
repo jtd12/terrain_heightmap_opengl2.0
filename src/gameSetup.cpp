@@ -68,27 +68,27 @@ void setup::keyboard(unsigned char key, int x, int y)
 		case 'W':
 		if(cam->getPitch()!=90 && cam->getPitch()!=-90)
 			cam->moveCamera(180);
-		cam->moveCameraUp(0.0);
+	//	cam->moveCameraUp(0.0);
 			glutPostRedisplay();
 			break;
 		
 		case 'z':	
 		case 'Z':
-				 if(cam->getPitch()!=90 && cam->getPitch()!=-90)
+		  if(cam->getPitch()!=90 && cam->getPitch()!=-90)
 			cam->moveCamera(0);
-		cam->moveCameraUp(180.0);
+		//cam->moveCameraUp(180.0);
 			glutPostRedisplay();
 			break;
 		
 		case 'a':	
 		case 'A':
-			cam->moveCamera(-90);
+			cam->moveCamera(90);
 			glutPostRedisplay();
 			break;
 			
 		case 'd':
 		case 'D':
-			cam->moveCamera(90);
+			cam->moveCamera(-90);
 			glutPostRedisplay();
 			break;
 			
@@ -116,10 +116,11 @@ void setup::update()
 	sky->update();
 	
 
-	collisionHeight(heightMap[0],cam,car,0,0);
- 	collisionHeight(heightMap[1],cam,car,0,0);
- 	collisionHeight(heightMap[2],cam,car,-5000,0);
-    collisionHeight(heightMap[3],cam,car,-5000,-5000);
+
+	collisionHeight(heightMap[0],cam,car,1500,1500);
+ 	collisionHeight(heightMap[1],cam,car,1500,1500);
+ 	collisionHeight(heightMap[2],cam,car,1500,1500);
+    collisionHeight(heightMap[3],cam,car,-9000,-3500);
     
     
 }
@@ -133,17 +134,6 @@ void setup::collisionHeight(height* h,camera* c,vehicule*v, float xpos,float zpo
    float terrainHeight = h->getHeightOfTerrain(c->getLocation().x+xpos, c->getLocation().z+zpos, h->hHeightField);
    
  
-    if (c->getLocation().y < terrainHeight+1000)
-    {
-        c->setLocation(terrainHeight+1000);
-    }
-    
-    
- 
-    else
-	{
-		c->setLocY(2.5f);
-	}
 
     
   float terrainHeight2 = h->getHeightOfTerrain(v->getLocation().x+xpos, v->getLocation().z+zpos, h->hHeightField);
@@ -167,20 +157,32 @@ void setup::collisionHeight(height* h,camera* c,vehicule*v, float xpos,float zpo
 
 }
 
+
+
 void setup::draw()
 {
-	glTranslated(0,0,0);
+	vector3d camPos;
+	vector3d target;
+	vector3d camUp;
 	
+	 camPos=vector3d(car->getLocation().x-cos(car->getRotation()*M_PI/180.0f)*2200,1500,car->getLocation().z+sin(car->getRotation()*M_PI/180.0f)*2200);
+	 target=car->getLocation();
+	 camUp=vector3d(0,1,0);
+	 
+	//glTranslated(0,0,0);
+	
+
     
  	cam->update();
  	
- 
+    gluLookAt(camPos.x,camPos.y,camPos.z,target.x,target.y+500,target.z,camUp.x,camUp.y,camUp.z);
  
 	glPushMatrix();
 	glRotated(sky->getRot(),0,0.5,0);
 	sky->drawSkybox(40000);
 	glPopMatrix();
 	glPushMatrix();
+	glTranslated(1500,0,1500);
 	car->draw();
 	glPopMatrix();
 	glPushMatrix();

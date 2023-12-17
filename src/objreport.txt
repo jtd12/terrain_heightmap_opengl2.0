@@ -4,17 +4,17 @@ Opening image: Grass_01_c.bmp
 newmtl Material.013
 Opening image: images.bmp
 newmtl Material.014
-Opening image: photorealistic\\photorealistic_bricks\\brick080.bmp
+Opening image: textures\\photorealistic_bricks\\brick080.bmp
 newmtl Material.015
-Opening image: photorealistic\\photorealistic_floor\\floor013+.bmp
+Opening image: textures\\photorealistic_floor\\floor013+.bmp
 newmtl Material.016
-Opening image: photorealistic\\photorealistic_road\\road07.bmp
+Opening image: textures\\photorealistic_road\\road07.bmp
 newmtl Material.017
-Opening image: photorealistic\\photorealistic_glassblock\\glassblock12b.bmp
-v -542.965 -15.4093 535.448
-v 476.409 -15.4093 535.448
-v -542.965 -15.4093 -483.926
-v 476.409 -15.4093 -483.926
+Opening image: textures\\photorealistic_glassblock\\glassblock02.bmp
+v -7857.97 -15.4093 7850.46
+v 7791.42 -15.4093 7850.46
+v -7857.97 -15.4093 -7798.94
+v 7791.42 -15.4093 -7798.94
 vn 0 1 0
 curmat=0
 v -7.20432 -15.9991 -24.1348

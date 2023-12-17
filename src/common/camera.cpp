@@ -3,7 +3,7 @@
 camera::camera()
 {
 	camPitch=0.0f;
-	camYaw=180.0f;
+	camYaw=0.0f;
 	mousevel=0.2f;
 	movevel=10.5f;
 	mi=false;

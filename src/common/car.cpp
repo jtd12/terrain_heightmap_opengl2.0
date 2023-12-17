@@ -301,6 +301,11 @@ void vehicule::setLocation(float locY)
 	pos.y=locY;
 }
 
+float vehicule::getRotation()
+{
+	return rot;
+}
+
 void vehicule::specialKey(int key, int x, int y)
 {
 	switch(key)

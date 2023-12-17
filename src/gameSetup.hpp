@@ -44,6 +44,7 @@ class setup
 	vehicule * car;
 	decor* dec;
 	camera * cam;
+	
 
 
 	

@@ -107,6 +107,7 @@ class vehicule
 		void setLocation(float locY);
 		vector3d getLocation();
 		void setLocY(float y);
+		float getRotation();
 		void specialKey(int key, int x, int y);
 		void specialKeyUp(int key, int x, int y);
 	private:
